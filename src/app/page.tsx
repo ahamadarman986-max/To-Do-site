@@ -98,28 +98,15 @@ export default function LandingPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-3xl opacity-20 dark:opacity-30"></div>
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 relative shadow-2xl">
-                <div className="flex flex-col gap-4">
-                  {/* Mock UI elements to look like a dashboard */}
-                  <div className="h-8 w-1/3 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
-                  <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className="h-24 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50"></div>
-                    <div className="h-24 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700"></div>
-                    <div className="h-24 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700"></div>
-                  </div>
-                  <div className="h-16 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm flex items-center px-4">
-                    <div className="w-5 h-5 rounded border-2 border-slate-300 dark:border-slate-600 mr-4"></div>
-                    <div className="h-4 w-1/2 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                  </div>
-                  <div className="h-16 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm flex items-center px-4">
-                    <div className="w-5 h-5 rounded border-2 border-emerald-500 bg-emerald-50 mr-4 flex items-center justify-center">
-                       <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                    </div>
-                    <div className="h-4 w-1/3 bg-slate-200 dark:bg-slate-700 rounded opacity-50"></div>
-                  </div>
-                </div>
+            <div className="relative group perspective-1000">
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-3xl opacity-30 dark:opacity-40 group-hover:opacity-50 transition-opacity duration-700"></div>
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/50 dark:border-slate-700/50 shadow-2xl transform transition-transform duration-700 hover:rotate-y-2 hover:scale-[1.02]">
+                <img 
+                  src="/dashboard_mockup.png" 
+                  alt="TaskFlow Pro Dashboard" 
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl"></div>
               </div>
             </div>
           </div>
