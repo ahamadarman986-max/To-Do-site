@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, LayoutDashboard, Zap, Shield, ListTodo } from 'lucide-react';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const session = await getServerSession(authOptions);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -18,12 +22,20 @@ export default function LandingPage() {
           <a href="#testimonials" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Testimonials</a>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/login" className="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-            Log in
-          </Link>
-          <Link href="/register" className="text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
-            Get Started <ArrowRight className="w-4 h-4" />
-          </Link>
+          {session ? (
+            <Link href="/dashboard" className="text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
+              Go to Dashboard <ArrowRight className="w-4 h-4" />
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                Log in
+              </Link>
+              <Link href="/register" className="text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
+                Get Started <ArrowRight className="w-4 h-4" />
+              </Link>
+            </>
+          )}
         </div>
       </header>
 
