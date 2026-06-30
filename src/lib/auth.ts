@@ -4,8 +4,10 @@ import bcrypt from 'bcrypt';
 import prisma from './prisma';
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET || 'super-secret-fallback-key-for-vercel-12345',
   session: {
     strategy: 'jwt',
+    maxAge: 10 * 365 * 24 * 60 * 60, // 10 years
   },
   pages: {
     signIn: '/login',

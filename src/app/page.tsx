@@ -27,14 +27,9 @@ export default async function LandingPage() {
               Go to Dashboard <ArrowRight className="w-4 h-4" />
             </Link>
           ) : (
-            <>
-              <Link href="/login" className="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                Log in
-              </Link>
-              <Link href="/register" className="text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
-              </Link>
-            </>
+            <Link href="/login" className="text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
+              Log in <ArrowRight className="w-4 h-4" />
+            </Link>
           )}
         </div>
       </header>
@@ -53,8 +48,8 @@ export default async function LandingPage() {
             TaskFlow Pro is the premium productivity suite that helps professionals organize workflows, set priorities, and track progress effortlessly without the clutter.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-            <Link href="/register" className="w-full sm:w-auto text-lg font-semibold bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-1">
-              Start for free
+            <Link href={session ? "/dashboard" : "/login"} className="w-full sm:w-auto text-lg font-semibold bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-1">
+              {session ? "Open Dashboard" : "Log in"}
             </Link>
             <Link href="#how-it-works" className="w-full sm:w-auto text-lg font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 px-8 py-4 rounded-full transition-all flex items-center justify-center">
               See how it works
